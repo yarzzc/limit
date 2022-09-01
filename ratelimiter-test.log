@@ -1,0 +1,313 @@
+2022-09-01 14:39:51.217  WARN 53000 --- [main] o.s.boot.diagnostics.FailureAnalyzers    : FailureAnalyzers [org.springframework.boot.autoconfigure.diagnostics.analyzer.NoSuchBeanDefinitionFailureAnalyzer,org.springframework.boot.autoconfigure.jdbc.DataSourceBeanCreationFailureAnalyzer,org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryBeanCreationFailureAnalyzer] implement BeanFactoryAware or EnvironmentAware. Support for these interfaces on FailureAnalyzers is deprecated, and will be removed in a future release. Instead provide a constructor that accepts BeanFactory or Environment parameters.
+2022-09-01 14:39:51.232 ERROR 53000 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.springframework.context.support.GenericApplicationContext.setApplicationStartup(GenericApplicationContext.java:167)
+
+The following method did not exist:
+
+    org.springframework.beans.factory.support.DefaultListableBeanFactory.setApplicationStartup(Lorg/springframework/core/metrics/ApplicationStartup;)V
+
+The calling method's class, org.springframework.context.support.GenericApplicationContext, was loaded from the following location:
+
+    jar:file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-context/5.3.22/spring-context-5.3.22.jar!/org/springframework/context/support/GenericApplicationContext.class
+
+The called method's class, org.springframework.beans.factory.support.DefaultListableBeanFactory, is available from the following locations:
+
+    jar:file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar
+    org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory: file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar
+    org.springframework.beans.factory.support.AbstractBeanFactory: file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar
+    org.springframework.beans.factory.support.FactoryBeanRegistrySupport: file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar
+    org.springframework.beans.factory.support.DefaultSingletonBeanRegistry: file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE.jar
+    org.springframework.core.SimpleAliasRegistry: file:/Users/wisdom/Documents/MyLibrary/apache-maven-repo/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes org.springframework.context.support.GenericApplicationContext and org.springframework.beans.factory.support.DefaultListableBeanFactory
+
+2022-09-01 14:41:21.808  INFO 54975 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 54975 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:41:21.812  INFO 54975 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:41:21.963  WARN 54975 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2022-09-01 14:41:22.024 ERROR 54975 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545) ~[spring-context-5.2.15.RELEASE.jar:5.2.15.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:140) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at com.yarzz.limit.RateLimiterApplication.main(RateLimiterApplication.java:16) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:205) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	... 8 common frames omitted
+
+2022-09-01 14:43:38.190  INFO 56956 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 56956 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:43:38.193  INFO 56956 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:43:38.285  INFO 56956 --- [main] com.yarzz.limit.RateLimiterApplication   : Started RateLimiterApplication in 0.482 seconds (JVM running for 0.868)
+2022-09-01 14:43:50.196  INFO 57130 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 57130 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:43:50.199  INFO 57130 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:43:50.353  INFO 57130 --- [main] com.yarzz.limit.RateLimiterApplication   : Started RateLimiterApplication in 0.671 seconds (JVM running for 1.152)
+2022-09-01 14:44:17.203  INFO 57516 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 57516 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:44:17.207  INFO 57516 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:44:17.354  INFO 57516 --- [main] com.yarzz.limit.RateLimiterApplication   : Started RateLimiterApplication in 0.663 seconds (JVM running for 1.167)
+2022-09-01 14:44:42.584  INFO 57876 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 57876 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:44:42.589  INFO 57876 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:44:42.729  WARN 57876 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2022-09-01 14:44:42.762 ERROR 57876 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545) ~[spring-context-5.2.15.RELEASE.jar:5.2.15.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:140) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at com.yarzz.limit.RateLimiterApplication.main(RateLimiterApplication.java:16) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:205) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	... 8 common frames omitted
+
+2022-09-01 14:44:54.970  INFO 58059 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 58059 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:44:54.973  INFO 58059 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:44:55.124  WARN 58059 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2022-09-01 14:44:55.175 ERROR 58059 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545) ~[spring-context-5.2.15.RELEASE.jar:5.2.15.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:140) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at com.yarzz.limit.RateLimiterApplication.main(RateLimiterApplication.java:16) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:205) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	... 8 common frames omitted
+
+2022-09-01 14:46:33.341  INFO 59535 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 59535 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:46:33.344  INFO 59535 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:46:33.427  WARN 59535 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2022-09-01 14:46:33.463 ERROR 59535 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545) ~[spring-context-5.2.15.RELEASE.jar:5.2.15.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236) [spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at com.yarzz.limit.RateLimiterApplication.main(RateLimiterApplication.java:18) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:205) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+	... 9 common frames omitted
+
+2022-09-01 14:47:16.235  INFO 60151 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 60151 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:47:16.237  INFO 60151 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:47:16.775  INFO 60151 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-09-01 14:47:16.778  INFO 60151 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-09-01 14:47:16.802  INFO 60151 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 Redis repository interfaces.
+2022-09-01 14:47:17.130  INFO 60151 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10086 (http)
+2022-09-01 14:47:17.138  INFO 60151 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 14:47:17.138  INFO 60151 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-09-01 14:47:17.195  INFO 60151 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 14:47:17.195  INFO 60151 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 923 ms
+2022-09-01 14:47:17.232  WARN 60151 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controller': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yarzzc.limit.AccessLimiter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2022-09-01 14:47:17.234  INFO 60151 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-01 14:47:17.242  INFO 60151 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-01 14:47:17.252 ERROR 60151 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.yarzzc.limit.AccessLimiter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.yarzzc.limit.AccessLimiter' in your configuration.
+
+2022-09-01 14:52:28.773  INFO 64616 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 64616 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:52:28.775  INFO 64616 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:52:29.456  INFO 64616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-09-01 14:52:29.458  INFO 64616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-09-01 14:52:29.491  INFO 64616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2022-09-01 14:52:29.847  INFO 64616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10086 (http)
+2022-09-01 14:52:29.855  INFO 64616 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 14:52:29.855  INFO 64616 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-09-01 14:52:29.906  INFO 64616 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 14:52:29.906  INFO 64616 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1074 ms
+2022-09-01 14:52:29.944  WARN 64616 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controller': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yarzzc.limit.AccessLimiter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2022-09-01 14:52:29.946  INFO 64616 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-01 14:52:29.956  INFO 64616 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-01 14:52:29.968 ERROR 64616 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.yarzzc.limit.AccessLimiter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.yarzzc.limit.AccessLimiter' in your configuration.
+
+2022-09-01 14:57:50.708  INFO 69234 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 69234 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 14:57:50.712  INFO 69234 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 14:57:51.236  INFO 69234 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-09-01 14:57:51.238  INFO 69234 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-09-01 14:57:51.263  INFO 69234 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2022-09-01 14:57:51.687  INFO 69234 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10086 (http)
+2022-09-01 14:57:51.697  INFO 69234 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 14:57:51.697  INFO 69234 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-09-01 14:57:51.766  INFO 69234 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 14:57:51.767  INFO 69234 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1017 ms
+2022-09-01 14:57:51.805  WARN 69234 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controller': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yarzzc.limit.AccessLimiter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2022-09-01 14:57:51.806  INFO 69234 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-01 14:57:51.815  INFO 69234 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-01 14:57:51.875 ERROR 69234 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.yarzzc.limit.AccessLimiter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.yarzzc.limit.AccessLimiter' in your configuration.
+
+2022-09-01 15:15:41.790  INFO 87651 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 87651 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 15:15:41.792  INFO 87651 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 15:15:42.214  INFO 87651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-09-01 15:15:42.217  INFO 87651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-09-01 15:15:42.237  INFO 87651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2022-09-01 15:15:42.601  INFO 87651 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10086 (http)
+2022-09-01 15:15:42.608  INFO 87651 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 15:15:42.608  INFO 87651 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-09-01 15:15:42.658  INFO 87651 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 15:15:42.658  INFO 87651 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 833 ms
+2022-09-01 15:15:42.692  WARN 87651 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controller': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yarzzc.limit.AccessLimiter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2022-09-01 15:15:42.694  INFO 87651 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-01 15:15:42.704  INFO 87651 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-01 15:15:42.769 ERROR 87651 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.yarzzc.limit.AccessLimiter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.yarzzc.limit.AccessLimiter' in your configuration.
+
+2022-09-01 15:15:59.613  INFO 87911 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 87911 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 15:15:59.615  INFO 87911 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 15:16:00.132  INFO 87911 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-09-01 15:16:00.133  INFO 87911 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-09-01 15:16:00.157  INFO 87911 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2022-09-01 15:16:00.460  INFO 87911 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10086 (http)
+2022-09-01 15:16:00.469  INFO 87911 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 15:16:00.469  INFO 87911 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-09-01 15:16:00.564  INFO 87911 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 15:16:00.564  INFO 87911 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 913 ms
+2022-09-01 15:16:00.604  WARN 87911 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controller': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yarzzc.limit.AccessLimiter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2022-09-01 15:16:00.606  INFO 87911 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-01 15:16:00.615  INFO 87911 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-01 15:16:00.684 ERROR 87911 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.yarzzc.limit.AccessLimiter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.yarzzc.limit.AccessLimiter' in your configuration.
+
+2022-09-01 15:17:21.283  INFO 89083 --- [main] com.yarzz.limit.RateLimiterApplication   : Starting RateLimiterApplication on zhuzhichengdeMac-mini.local with PID 89083 (/Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit/ratelimiter-test/target/classes started by wisdom in /Users/wisdom/Documents/MyWorkspace/Personal/IDEA/limit/limit)
+2022-09-01 15:17:21.286  INFO 89083 --- [main] com.yarzz.limit.RateLimiterApplication   : No active profile set, falling back to default profiles: default
+2022-09-01 15:17:21.859  INFO 89083 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-09-01 15:17:21.861  INFO 89083 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-09-01 15:17:21.881  INFO 89083 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2022-09-01 15:17:22.349  INFO 89083 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 10086 (http)
+2022-09-01 15:17:22.356  INFO 89083 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-01 15:17:22.357  INFO 89083 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-09-01 15:17:22.412  INFO 89083 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-01 15:17:22.413  INFO 89083 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1079 ms
+2022-09-01 15:17:22.450  WARN 89083 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'controller': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.yarzzc.limit.AccessLimiter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2022-09-01 15:17:22.453  INFO 89083 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-01 15:17:22.464  INFO 89083 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-01 15:17:22.539 ERROR 89083 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.yarzzc.limit.AccessLimiter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.yarzzc.limit.AccessLimiter' in your configuration.
+

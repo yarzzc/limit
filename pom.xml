@@ -6,7 +6,12 @@
 
     <groupId>com.yarzzc</groupId>
     <artifactId>limit</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>ratelimter-annotation</module>
+        <module>ratelimiter-test</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
