@@ -28,8 +28,8 @@ public class RedisConfiguration {
 	}
 
 	@Bean
-	public DefaultRedisScript loadRedisScript() {
-		DefaultRedisScript redisScript = new DefaultRedisScript();
+	public DefaultRedisScript<Boolean> loadRedisScript() {
+		DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
 		redisScript.setLocation(new ClassPathResource("RateLimiter.lua"));
 		redisScript.setResultType(Boolean.class);
 		return redisScript;

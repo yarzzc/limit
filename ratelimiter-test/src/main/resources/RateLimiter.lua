@@ -9,21 +9,23 @@ local methodKey = KEYS[1]
 redis.log(redis.LOG_WARNING, "methodKey: ", methodKey)
 
 -- 调用脚本传入的限流窗口大小
-local limit = tonumber(ARGV[1])
+local windowSize = tonumber(ARGV[1])
+local sendSize = tonumber(ARGV[2])
+local windowTime = tonumber(ARGV[3])
 
 -- 获取当前流量大小
-local count = tonumber(redis.call('get', methodKey) or "0")
+local limit = tonumber(redis.call('get', methodKey) or "0")
 
 -- 是否超出流量阈值
-if count + 1 > limit then
+if limit + sendSize > windowSize then
     -- 拒绝服务访问
     return false
 else
     -- 没有超过
     -- 设置当前访问的数量 +1
-    redis.call('INCRBY', methodKey, 1)
+    redis.call('INCRBY', methodKey, sendSize)
     -- 设置过期时间
-    redis.call("EXPIRE", methodKey, 1)
+    redis.call("EXPIRE", methodKey, windowTime)
     -- 放行
     return true
 end

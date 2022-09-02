@@ -16,7 +16,8 @@ import javax.annotation.Resource;
  **/
 @Service
 @Slf4j
-public class AccessLimiter {
+@Deprecated
+public class AccessLimiterService {
 
 	@Resource
 	private StringRedisTemplate stringRedisTemplate;
