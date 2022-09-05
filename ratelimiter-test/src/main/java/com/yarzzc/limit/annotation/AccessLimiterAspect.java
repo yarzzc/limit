@@ -1,4 +1,4 @@
-package com.yarzz.limit.annotation;
+package com.yarzzc.limit.annotation;
 
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class AccessLimiterAspect {
 	@Resource
 	private RedisScript<Boolean> rateLimiterLua;
 
-	@Pointcut("@annotation(com.yarzz.limit.annotation.AccessLimiter)")
+	@Pointcut("@annotation(com.yarzzc.limit.annotation.AccessLimiter)")
 	public void cut() {
 	}
 

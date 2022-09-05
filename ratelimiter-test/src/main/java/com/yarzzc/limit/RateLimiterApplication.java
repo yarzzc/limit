@@ -1,4 +1,4 @@
-package com.yarzz.limit;
+package com.yarzzc.limit;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @author Mr.Moonzzc
  * @date 2022-08-31 18:03
  **/
-@SpringBootApplication
+@SpringBootApplication()
 @EnableAspectJAutoProxy(exposeProxy = true)
 public class RateLimiterApplication {
 	public static void main(String[] args) {

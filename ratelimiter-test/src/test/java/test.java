@@ -1,5 +1,5 @@
-import com.yarzz.limit.TestController;
-import com.yarzz.limit.RateLimiterApplication;
+import com.yarzzc.limit.TestController;
+import com.yarzzc.limit.RateLimiterApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

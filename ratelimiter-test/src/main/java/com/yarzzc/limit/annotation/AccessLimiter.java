@@ -1,4 +1,4 @@
-package com.yarzz.limit.annotation;
+package com.yarzzc.limit.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

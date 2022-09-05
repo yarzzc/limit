@@ -1,6 +1,6 @@
-package com.yarzz.limit;
+package com.yarzzc.limit;
 
-import com.yarzz.limit.annotation.AccessLimiter;
+import com.yarzzc.limit.annotation.AccessLimiter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

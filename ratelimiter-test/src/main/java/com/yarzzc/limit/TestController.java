@@ -1,6 +1,6 @@
-package com.yarzz.limit;
+package com.yarzzc.limit;
 
-import com.yarzz.limit.annotation.AccessLimiter;
+import com.yarzzc.limit.annotation.AccessLimiter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.web.bind.annotation.GetMapping;
