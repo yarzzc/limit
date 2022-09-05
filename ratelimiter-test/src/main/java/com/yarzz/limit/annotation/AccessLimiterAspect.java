@@ -32,13 +32,12 @@ public class AccessLimiterAspect {
 	@Resource
 	private RedisScript<Boolean> rateLimiterLua;
 
-	@Pointcut("@annotation(AccessLimiter)")
-	public  void cut(){
-		log.info("cut");
+	@Pointcut("@annotation(com.yarzz.limit.annotation.AccessLimiter)")
+	public void cut() {
 	}
 
 	@Before("cut()")
-	public void before(JoinPoint joinPoint){
+	public void before(JoinPoint joinPoint) {
 		// 1. 获得方法签名，作为 methodKey
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		Method method = signature.getMethod();
@@ -62,7 +61,6 @@ public class AccessLimiterAspect {
 					.map(Class::getName)
 					.collect(Collectors.joining(","));
 			key += "#" + paramTypes;
-			log.info("key: {}", key);
 		}
 
 		// 2. 调用 Redis
@@ -77,7 +75,7 @@ public class AccessLimiterAspect {
 				Integer.toString(windowTime)
 		));
 
-		if(!acquire) {
+		if (!acquire) {
 			log.error("访问过于频繁，请稍后再试，当前访问key：{}", key);
 			throw new RuntimeException("访问频率过高");
 		}

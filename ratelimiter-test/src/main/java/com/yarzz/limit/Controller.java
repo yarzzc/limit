@@ -2,6 +2,7 @@ package com.yarzz.limit;
 
 import com.yarzz.limit.annotation.AccessLimiter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,8 +33,8 @@ public class Controller {
 	@GetMapping("test1")
 	@AccessLimiter(windowSize = 10, sendSize = 2, windowTime = 60)
 	public String test1(String name){
-		a(name);
-		getString("success " + name);
+		((Controller)AopContext.currentProxy()).a(name);
+		((Controller)AopContext.currentProxy()).getString("success " + name);
 		return getString("success " + name);
 	}
 
