@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Component
 public class LogAspect {
 
-	@Pointcut("execution(public * com.yarzz.limit.Controller.*(..))")
+	@Pointcut("execution(public * com.yarzz.limit.*.*(..))")
 	public void cut() {
 		log.info("cut");
 	}

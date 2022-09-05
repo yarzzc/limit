@@ -1,4 +1,4 @@
-import com.yarzz.limit.Controller;
+import com.yarzz.limit.TestController;
 import com.yarzz.limit.RateLimiterApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,10 +14,10 @@ import javax.annotation.Resource;
 public class test {
 
 	@Resource
-	private Controller controller;
+	private TestController testController;
 
 	@Test
 	public void test1(){
-		controller.test1("lisi");
+		testController.test1("lisi");
 	}
 }

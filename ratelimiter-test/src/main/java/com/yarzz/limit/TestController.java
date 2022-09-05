@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 @Slf4j
 @AccessLimiter(windowSize = 10, sendSize = 1, windowTime = 60)
 @RequestMapping("/limit")
-public class Controller {
+public class TestController {
 
 	@Resource
 	private AccessLimiterService accessLimiterService;
@@ -33,8 +33,8 @@ public class Controller {
 	@GetMapping("test1")
 	@AccessLimiter(windowSize = 10, sendSize = 2, windowTime = 60)
 	public String test1(String name){
-		((Controller)AopContext.currentProxy()).a(name);
-		((Controller)AopContext.currentProxy()).getString("success " + name);
+		((TestController)AopContext.currentProxy()).a(name);
+		((TestController)AopContext.currentProxy()).getString("success " + name);
 		return getString("success " + name);
 	}
 
