@@ -18,6 +18,11 @@ public class test {
 
 	@Test
 	public void test1(){
-		testController.test1("lisi");
+		testController.test1("李四");
+	}
+
+	@Test
+	public void test2(){
+		testController.test2("赵六");
 	}
 }

@@ -15,24 +15,25 @@ import javax.annotation.Resource;
  * @author Mr.Moonzzc
  * @date 2022-09-01 14:25
  **/
-@RestController
+
 @Slf4j
-@AccessLimiter(windowSize = 10, sendSize = 1, windowTime = 60)
+@RestController
 @RequestMapping("/limit")
 public class TestController {
-
 	@Resource
 	private AccessLimiterService accessLimiterService;
+	@Resource
+	private TestService testService;
 
 	@GetMapping("test")
-	public String test(){
+	public String test() {
 		accessLimiterService.limitAccess("test", 1);
 		return getString("success");
 	}
 
 	@GetMapping("test1")
 	@AccessLimiter(windowSize = 10, sendSize = 2, windowTime = 60)
-	public String test1(String name){
+	public String test1(String name) {
 		((TestController)AopContext.currentProxy()).a(name);
 		((TestController)AopContext.currentProxy()).getString("success " + name);
 		return getString("success " + name);
@@ -46,5 +47,13 @@ public class TestController {
 	@AccessLimiter(windowSize = 10, sendSize = 4, windowTime = 60)
 	public String a(String name) {
 		return name;
+	}
+
+	@GetMapping("test2")
+	@AccessLimiter(windowSize = 10, sendSize = 2, windowTime = 60)
+	public String test2(String name) {
+		testService.a(name);
+		testService.getString(name);
+		return getString("success " + name);
 	}
 }

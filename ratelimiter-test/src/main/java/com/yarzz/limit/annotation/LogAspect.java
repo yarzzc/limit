@@ -24,7 +24,6 @@ public class LogAspect {
 
 	@Pointcut("execution(public * com.yarzz.limit.*.*(..))")
 	public void cut() {
-		log.info("cut");
 	}
 
 	@Around("cut()")
