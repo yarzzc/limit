@@ -50,6 +50,11 @@
             <artifactId>guava</artifactId>
             <version>19.0</version>
         </dependency>
+        <dependency>
+            <artifactId>ratelimter-annotation</artifactId>
+            <groupId>com.yarzzc</groupId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

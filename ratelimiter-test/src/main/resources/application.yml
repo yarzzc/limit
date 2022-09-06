@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ratelimiter-test
+  redis:
+    host: 121.37.182.158
+    database: 0
+    port: 28002
+server:
+  port: 10086
+logging:
+  file: /tmp/${spring.application.name}.log
+  level:
+    root: info
+    web: info
